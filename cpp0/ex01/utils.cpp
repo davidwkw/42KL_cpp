@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:58:26 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/15 18:58:27 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/16 14:38:42 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ std::string ft_str_resize(const std::string str, size_t max_size, char c)
 	if (output.size() > max_size)
 	{
 		output.resize(max_size - 1);
-		output.append(1, c);
+		output.push_back(c);
 	}
 	return (output);
 }
