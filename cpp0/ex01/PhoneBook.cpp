@@ -6,14 +6,14 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:58:16 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/23 14:44:49 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/23 17:16:09 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <climits>
 
-PhoneBook::PhoneBook(void) : contacts(), _index(0)
+PhoneBook::PhoneBook(void) : contacts(), _index(0), _fillState(0)
 {
 	return;
 }
@@ -22,6 +22,8 @@ void	PhoneBook::add_contact(void)
 {
 	this->contacts[this->_index].prompt_create_contact();
 	this->_index = (this->_index + 1) % 8;
+	if (this->_fillState < 8)
+		this->_fillState++;
 }
 
 void	PhoneBook::display_contacts(void)
@@ -30,7 +32,7 @@ void	PhoneBook::display_contacts(void)
 			  << "First name" << "|"
 			  << "Last name" << std::setw(2) << "|"
 			  << "Nickname" << std::setw(2) << "\n";
-	for (int i = 0; i < this->_index ; i++)
+	for (int i = 0; i < this->_fillState; i++)
 	{
 		std::cout << std::setw(10) << i << "|"
 				  << std::setw(10) << ft_str_resize(this->contacts[i].get_first_name(), 10, '.') << "|"
@@ -53,7 +55,7 @@ void	PhoneBook::search_contacts(void)
 	}
 	else if (index < 0 || index > 7 )
 		std::cout << "Index is out of range. Please select an index between 0-7\n";
-	else if (index >= this->_index)
+	else if (index >= this->_fillState)
 		std::cout << "No contact saved in that index\n";
 	else
 	{

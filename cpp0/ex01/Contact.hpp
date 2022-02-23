@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:58:06 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/22 20:26:29 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/23 16:58:34 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 class Contact
 {
 	public:
+		~Contact(void);
+
 		void	prompt_create_contact(void);
 
 		std::string get_first_name(void) const;
