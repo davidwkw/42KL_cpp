@@ -8,7 +8,7 @@ SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = claptrap
+NAME = scavtrap
 
 all : $(NAME);
 

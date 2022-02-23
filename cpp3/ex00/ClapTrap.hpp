@@ -12,9 +12,10 @@ class ClapTrap
 		int	_energyPoints;
 		int _atkDmg;
 
+	protected:
 		ClapTrap(void);
 	public:
-		ClapTrap(std::string);
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap & src);
 		~ClapTrap(void);
 

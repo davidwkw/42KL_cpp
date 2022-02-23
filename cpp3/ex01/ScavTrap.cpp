@@ -1,24 +1,29 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	std::cout << "ScavTrap default constructor called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _atkDmg(20)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap " << this->_name << " was created\n";
-	return;
+	this->_name = name;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_atkDmg = 20;
+	std::cout << "ScavTrap " << this->_name << " was created" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap(), _name(src._name), _hitPoints(src._hitPoints), _energyPoints(src._energyPoints), _atkDmg(src._atkDmg)
+ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap(src._name)
 {
-	std::cout << "ScavTrap " << this->_name << " was copied\n";
+	std::cout << "ScavTrap " << this->_name << " was copied" << std::endl;
+	*this = src;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap " << this->_name << " was destroyed\n";
+	std::cout << "ScavTrap " << this->_name << " was destroyed" << std::endl;
 }
 
 ScavTrap & ScavTrap::operator=(const ScavTrap & src)
@@ -35,14 +40,14 @@ ScavTrap & ScavTrap::operator=(const ScavTrap & src)
 
 void ScavTrap::attack(const std::string& target)
 {
-		if (this->_energyPoints > 0 && this->_hitPoints > 0)
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target << " , causing " << this->_atkDmg << " points of damage!\n";
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_atkDmg << " points of damage!" << std::endl;
 		this->_energyPoints-= 1;
 	}
 }
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap " << this->_name << " is now Gate keeper mode\n";
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
 }

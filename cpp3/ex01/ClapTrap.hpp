@@ -6,17 +6,16 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	_name;
 		int	_hitPoints;
 		int	_energyPoints;
 		int _atkDmg;
 
-	protected:
 		ClapTrap(void);
 
 	public:
-		ClapTrap(std::string);
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap & src);
 		~ClapTrap(void);
 		ClapTrap & operator=(const ClapTrap & src);
@@ -26,7 +25,7 @@ class ClapTrap
 		int getEnergyPoints(void) const;
 		int getAtkDmg(void) const;
 
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

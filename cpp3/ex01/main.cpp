@@ -4,8 +4,7 @@
 int	main(void)
 {
 	ClapTrap og_bot("Billy Bob");
-
-	og_bot.attack("Claptrap");
+	og_bot.attack("bot boi");
 	std::cout << "Energy points left: " << og_bot.getEnergyPoints() << "\n";
 	og_bot.takeDamage(5);
 	std::cout << "Hitpoints left: " << og_bot.getHitPoints() << "\n";
@@ -14,7 +13,7 @@ int	main(void)
 	std::cout << "Energy points left: " << og_bot.getEnergyPoints() << "\n";
 
 	ScavTrap derived_bot("Gandalf");
-	derived_bot.attack("Claptrap");
+	derived_bot.attack("Another botboi");
 	std::cout << "Energy points left: " << derived_bot.getEnergyPoints() << "\n";
 	derived_bot.takeDamage(5);
 	std::cout << "Hitpoints left: " << derived_bot.getHitPoints() << "\n";
