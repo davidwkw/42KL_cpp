@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:58:16 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/23 13:35:01 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:44:49 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	PhoneBook::search_contacts(void)
 	{
 		std::cout << "Please input integers only\n";
 		std::cin.clear();
-		std::cin.ignore(INT_MAX, '\n');
 	}
 	else if (index < 0 || index > 7 )
 		std::cout << "Index is out of range. Please select an index between 0-7\n";
@@ -64,4 +63,5 @@ void	PhoneBook::search_contacts(void)
 				<< "Phone number: " << this->contacts[index].get_phone_number() << "\n"
 				<< "Darkest secret: " << this->contacts[index].get_darkest_secret() << std::endl;
 	}
+	std::cin.ignore(INT_MAX, '\n');
 }
