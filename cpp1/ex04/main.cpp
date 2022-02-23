@@ -4,8 +4,8 @@
 
 int	main(int argc, char **argv)
 {
-	size_t		pos;
-	std::string	buffer;
+	size_t			pos;
+	std::string		buffer;
 	std::ifstream	infile;
 	std::ofstream	outfile;
 
