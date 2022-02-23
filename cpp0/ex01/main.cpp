@@ -6,12 +6,13 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:58:10 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/15 18:58:34 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/23 13:35:34 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstring>
+#include <climits>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -31,6 +32,7 @@ int	main(void)
 			phonebook.search_contacts();
 		else if (input.compare("EXIT") == 0)
 			break;
+		input = "";
 	}
 	return (0);
 }

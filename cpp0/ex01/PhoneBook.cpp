@@ -6,11 +6,12 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:58:16 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/15 18:58:17 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/23 13:35:01 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <climits>
 
 PhoneBook::PhoneBook(void) : contacts(), _index(0)
 {
@@ -25,9 +26,9 @@ void	PhoneBook::add_contact(void)
 
 void	PhoneBook::display_contacts(void)
 {
-	std::cout << "Index" << std::setw(5) << "|"
+	std::cout << "Index" << std::setw(6) << "|"
 			  << "First name" << "|"
-			  << "Last name" << std::setw(1) << "|"
+			  << "Last name" << std::setw(2) << "|"
 			  << "Nickname" << std::setw(2) << "\n";
 	for (int i = 0; i < this->_index ; i++)
 	{
@@ -45,7 +46,13 @@ void	PhoneBook::search_contacts(void)
 	this->display_contacts();
 	std::cout << "Input index: ";
 	std::cin >> index;
-	if (index < 0 || index > 7 )
+	if (std::cin.fail())
+	{
+		std::cout << "Please input integers only\n";
+		std::cin.clear();
+		std::cin.ignore(INT_MAX, '\n');
+	}
+	else if (index < 0 || index > 7 )
 		std::cout << "Index is out of range. Please select an index between 0-7\n";
 	else if (index >= this->_index)
 		std::cout << "No contact saved in that index\n";
@@ -57,5 +64,4 @@ void	PhoneBook::search_contacts(void)
 				<< "Phone number: " << this->contacts[index].get_phone_number() << "\n"
 				<< "Darkest secret: " << this->contacts[index].get_darkest_secret() << std::endl;
 	}
-	std::cin.ignore();
 }
