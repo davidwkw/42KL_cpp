@@ -2,14 +2,14 @@
 
 int	main(void)
 {
-	ClapTrap bot("Billy Bob");
+	ClapTrap og_bot("Billy Bob");
 
-	bot.attack("Claptrap");
-	std::cout << "Energy points left: " << bot.getEnergyPoints() << "\n";
-	bot.takeDamage(5);
-	std::cout << "Hitpoints left: " << bot.getHitPoints() << "\n";
-	bot.beRepaired(5);
-	std::cout << "Hitpoints left: " << bot.getHitPoints() << "\n";
-	std::cout << "Energy points left: " << bot.getEnergyPoints() << "\n";
+	og_bot.attack("bot boi");
+	std::cout << og_bot.getName() << "'s energy points left: " << og_bot.getEnergyPoints() << "\n";
+	og_bot.takeDamage(5);
+	std::cout << og_bot.getName() << "'s hitpoints left: " << og_bot.getHitPoints() << "\n";
+	og_bot.beRepaired(5);
+	std::cout << og_bot.getName() << "'s hitpoints left: " << og_bot.getHitPoints() << "\n";
+	std::cout << og_bot.getName() << "'s energy points left: " << og_bot.getEnergyPoints() << "\n";
 	return (0);
 }
