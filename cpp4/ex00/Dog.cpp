@@ -1,13 +1,15 @@
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal(), type("Dog")
+Dog::Dog(void) : Animal()
 {
 	std::cout << "Default dog class constructor was called" << std::endl;
+	this->type = "Dog";
 }
 
-Dog::Dog(const Dog & src) : Animal(), type(src.type)
+Dog::Dog(const Dog & src) : Animal()
 {
 	std::cout << "Dog copy constructor was called" << std::endl;
+	*this = src;
 }
 
 Dog::~Dog(void)
@@ -19,9 +21,7 @@ Dog & Dog::operator=(const Dog & src)
 {
 	std::cout << "Dog assignment operator was called" << std::endl;
 	if (this != &src)
-	{
 		this->type = src.getType();
-	}
 	return (*this);
 }
 

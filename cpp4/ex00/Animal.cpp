@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:23:49 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/26 23:41:23 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/27 23:02:14 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ Animal & Animal::operator=(const Animal & src)
 {
 	std::cout << "Animal assignment operator was called" << std::endl;
 	if (this != &src)
-	{
 		this->type = src.getType();
-	}
 	return (*this);
 }
 
