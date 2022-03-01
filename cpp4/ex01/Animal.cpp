@@ -6,21 +6,20 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:23:49 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/01 17:56:47 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/27 23:02:14 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : type("Animal")
+Animal::Animal(void) : type("")
 {
 	std::cout << "Default animal class constructor was called" << std::endl;
 }
 
-Animal::Animal(const Animal & src)
+Animal::Animal(const Animal & src) : type(src.type)
 {
 	std::cout << "Animal copy constructor was called" << std::endl;
-	*this = src;
 }
 
 Animal::~Animal(void)

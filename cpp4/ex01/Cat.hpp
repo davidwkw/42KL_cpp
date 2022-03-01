@@ -4,9 +4,12 @@
 # include <iostream>
 # include <string>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal
 {
+	private:
+		Brain * brain;
 	public:
 		Cat(void);
 		Cat(const Cat & src);
