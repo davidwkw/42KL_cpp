@@ -6,13 +6,13 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:08:40 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:08:41 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/28 18:26:34 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string name) : _name(name)
+HumanB::HumanB(const std::string name) : _name(name), _weapon(NULL)
 {
 	return;
 }

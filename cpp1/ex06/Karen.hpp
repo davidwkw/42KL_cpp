@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:08:08 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:08:09 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/28 18:15:52 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,12 @@ typedef	struct s_karen_lookup
 	std::string command;
 	void	(Karen::*f)(void);
 }	t_karen_lookup;
+
+enum {
+	DEBUG = 0,
+	INFO = 1,
+	WARNING = 2,
+	ERROR = 3
+};
 
 #endif

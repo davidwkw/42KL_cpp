@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:08:26 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:08:28 by kwang            ###   ########.fr       */
+/*   Updated: 2022/02/28 18:28:20 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 		pos = 0;
 		while ((pos = buffer.find(argv[2])) != std::string::npos)
 		{
-			buffer.erase(pos, strlen(argv[2]));
+			buffer.erase(pos, std::strlen(argv[2]));
 			buffer.insert(pos, argv[3]);
 		}
 		outfile << buffer << "\n";
