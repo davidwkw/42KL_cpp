@@ -1,0 +1,38 @@
+#include "Brain.hpp"
+
+Brain::Brain(void) : _ideas()
+{
+	std::cout << "Brain's default constructor is called" << std::endl;
+}
+
+Brain::Brain(const Brain & src) : _ideas()
+{
+	std::cout << "Brain's copy constructor is called" << std::endl;
+	*this = src;
+}
+
+Brain::~Brain(void)
+{
+	std::cout << "Brain's default destructor is called" << std::endl;
+}
+
+Brain & Brain::operator=(const Brain & src)
+{
+	std::cout << "Brain's assignment operator is called" << std::endl;
+	if (this != &src)
+	{
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = src.getIdea(i);
+	}
+	return (*this);
+}
+
+std::string Brain::getIdea(size_t index) const
+{
+	return (this->_ideas[index]);
+}
+
+void Brain::setIdea(std::string str, size_t index)
+{
+	this->_ideas[index] = str;
+}

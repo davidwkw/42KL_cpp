@@ -6,28 +6,44 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:23:46 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/28 17:13:30 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/02 12:01:40 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
 int main(void)
 {
-	int num;
+	Animal * animal[10];
 
-	num = 10;
-	Animal animals[num];
-	for (int i = 0; i < num; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		if (i < num / 2)
-			animals[i] = new Dog;
+		if (i < 5)
+			animal[i] = new Cat;
 		else
-			animals[i] = new Cat;
-
+			animal[i] = new Dog;
 	}
+
+	std::cout << std::endl;
+
+	for (int i = 0; i < 10; i++)
+		delete animal[i];
+
+	std::cout << std::endl;
+
+	Dog dog1;
+	dog1.getBrain()->setIdea("I am a good doggo", 0);
+	Dog dog2 = dog1;
+	std::cout << "Dog1: " << dog1.getBrain()->getIdea(0) << "\n";
+	std::cout << "Dog2: " << dog2.getBrain()->getIdea(0) << "\n";
+	dog1.getBrain()->setIdea("I am now a bad doggo", 0);
+	std::cout << "Dog1: " << dog1.getBrain()->getIdea(0) << "\n";
+	std::cout << "Dog2: " << dog2.getBrain()->getIdea(0) << "\n";
+
 	return 0;
 }
