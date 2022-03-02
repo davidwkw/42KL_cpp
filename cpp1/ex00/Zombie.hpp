@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:09:21 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:09:22 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:25:19 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Zombie
 	public:
 		Zombie(std::string name);
 		~Zombie(void);
-		void 		announce(void) const;
+		void announce(void) const;
 
 };
 
