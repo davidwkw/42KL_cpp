@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:34 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:07:35 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/23 19:18:01 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed(int const num)
 Fixed::Fixed(float const num)
 {
 	std::cout << "Float constructor called\n";
-	this->_value = roundf(num * (1 << this->_bits));
+	this->_value = static_cast<int>(roundf(num * (1 << this->_bits)));
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs){
@@ -41,9 +41,10 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called\n";
 }
 
-Fixed::Fixed(Fixed const & src) : _value(src._value)
+Fixed::Fixed(Fixed const & src)
 {
 	std::cout << "Copy constructor called\n";
+	*this = src;
 }
 
 int Fixed::getRawBits(void) const
@@ -59,61 +60,61 @@ void Fixed::setRawBits(int const raw)
 Fixed & Fixed::operator=(Fixed const &rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
-		this->_value = rhs.getRawBits();
+		this->_value = rhs._value;
 	return *this;
 }
 
 bool Fixed::operator>(Fixed const & rhs) const
 {
-	return (this->getRawBits() > rhs.getRawBits());
+	return (this->_value > rhs._value);
 }
 
 bool Fixed::operator<(Fixed const & rhs) const
 {
-	return (this->getRawBits() < rhs.getRawBits());
+	return (this->_value < rhs._value);
 }
 
 bool Fixed::operator>=(Fixed const & rhs) const
 {
-	return (this->getRawBits() >= rhs.getRawBits());
+	return (this->_value >= rhs._value);
 }
 
 bool Fixed::operator<=(Fixed const & rhs) const
 {
-	return (this->getRawBits() <= rhs.getRawBits());
+	return (this->_value <= rhs._value);
 }
 
 bool Fixed::operator==(Fixed const & rhs) const
 {
-	return (this->getRawBits() == rhs.getRawBits());
+	return (this->_value == rhs._value);
 }
 
 bool Fixed::operator!=(Fixed const & rhs) const
 {
-	return (this->getRawBits() != rhs.getRawBits());
+	return (this->_value != rhs._value);
 }
 
 Fixed Fixed::operator+(Fixed const & rhs) const
 {
-	return (Fixed(this->getRawBits() + rhs.getRawBits()));
+	return (Fixed(this->_value + rhs._value));
 }
 
 Fixed Fixed::operator-(Fixed const & rhs) const
 {
-	return (Fixed(this->getRawBits() - rhs.getRawBits()));
+	return (Fixed(this->_value - rhs._value));
 }
 
 Fixed Fixed::operator*(Fixed const & rhs) const
 {
 	Fixed	temp;
-	temp.setRawBits((long)this->getRawBits() * (long)rhs.getRawBits() / (1 << Fixed::_bits));
+	temp.setRawBits(static_cast<int>((static_cast<long>(this->_value) * static_cast<long>(rhs._value)) >> Fixed::_bits));
 	return (temp);
 }
 
 Fixed Fixed::operator/(Fixed const & rhs) const
 {
 	Fixed	temp;
-	temp.setRawBits(((long)this->getRawBits() * (1 << Fixed::_bits)) / rhs.getRawBits());
+	temp.setRawBits(static_cast<int>((static_cast<long>(this->_value << Fixed::_bits)) / static_cast<long>(rhs._value)));
 	return (temp);
 }
 
@@ -145,7 +146,7 @@ Fixed Fixed::operator--(int)
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_value / (float)(1 << this->_bits));
+	return (static_cast<float>(this->_value) / (1 << this->_bits));
 }
 
 int Fixed::toInt(void) const
@@ -155,28 +156,28 @@ int Fixed::toInt(void) const
 
 Fixed & Fixed::min(Fixed & a, Fixed & b)
 {
-	if (b.getRawBits() < a.getRawBits())
+	if (b._value < a._value)
 		return (b);
 	return (a);
 }
 
 Fixed const & Fixed::min(Fixed const & a, Fixed const & b)
 {
-	if (b.getRawBits() < a.getRawBits())
+	if (b._value < a._value)
 		return (b);
 	return (a);
 }
 
 Fixed & Fixed::max(Fixed & a, Fixed & b)
 {
-	if (b.getRawBits() > a.getRawBits())
+	if (b._value > a._value)
 		return (b);
 	return (a);
 }
 
 Fixed const & Fixed::max(Fixed const & a, Fixed const & b)
 {
-	if (b.getRawBits() > a.getRawBits())
+	if (b._value > a._value)
 		return (b);
 	return (a);
 }

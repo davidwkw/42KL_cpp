@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:15 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:07:16 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/23 15:30:23 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,16 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called\n";
 }
 
-Fixed::Fixed(Fixed const & src) : _value(src._value)
+Fixed::Fixed(Fixed const & src)
 {
 	std::cout << "Copy constructor called\n";
+	*this = src;
 }
 
 Fixed & Fixed::operator=(const Fixed &rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
-		this->_value = rhs.getRawBits();
+		this->_value = rhs._value;
 	return *this;
 }
 

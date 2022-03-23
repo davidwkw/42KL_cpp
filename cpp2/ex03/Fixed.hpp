@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:48 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:07:49 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/23 17:17:38 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Fixed
 		static const int _bits;
 	public:
 		Fixed(void);
-		Fixed(int const num);
-		Fixed(float const num);
+		explicit Fixed(int const num);
+		explicit Fixed(float const num);
 		Fixed(Fixed const & src);
 		~Fixed(void);
 

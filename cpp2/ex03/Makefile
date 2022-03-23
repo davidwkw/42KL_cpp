@@ -6,7 +6,7 @@
 #    By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/24 14:07:51 by kwang             #+#    #+#              #
-#    Updated: 2022/02/24 14:07:52 by kwang            ###   ########.fr        #
+#    Updated: 2022/03/23 00:05:21 by kwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,13 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRCS = main.cpp \
-	   Fixed.cpp
+	   Fixed.cpp \
+	   Point.cpp \
+	   bsp.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = fixed_point
+NAME = bsp
 
 all : $(NAME);
 
