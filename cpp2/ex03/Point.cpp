@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:53 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 17:25:42 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/23 22:11:33 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ Fixed const	Point::getY(void) const
 
 std::ostream & operator<<(std::ostream & o, Point const &rhs)
 {
-	o << "Coordinate(" << rhs.getX() << ',' << rhs.getY() << ")";
+	o << "Coordinate (" << rhs.getX() << ',' << rhs.getY() << ")";
 	return o;
 }
