@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:36:08 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:36:08 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/24 21:33:11 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_source[i] == NULL)
+		if (this->_source[i] == NULL) {
 			this->_source[i] = materia;
+			return;
+		}
 	}
 }
 

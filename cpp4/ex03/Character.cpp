@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:50 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:50 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/24 21:34:21 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Character::~Character(void)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory != NULL)
+		if (this->_inventory[i] != NULL)
 			delete  this->_inventory[i];
 	}
 }
@@ -66,7 +66,10 @@ void Character::equip(AMateria* m)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] == NULL)
+		{
 			this->_inventory[i] = m;
+			return;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:48 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:49 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/24 01:50:29 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ICharacter;
 class AMateria
 {
 	protected:
-		std::string type;
+		std::string _type;
 	public:
 		AMateria(void);
 		AMateria(std::string const & type);
