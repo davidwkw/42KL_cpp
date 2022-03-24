@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:34 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:09:13 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/24 17:31:41 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ Fixed Fixed::operator--(int)
 
 float Fixed::toFloat(void) const
 {
-	return (static_cast<float>(this->_value) / (1 << this->_bits));
+	return (static_cast<float>(this->_value / 1 << this->_bits));
 }
 
 int Fixed::toInt(void) const
