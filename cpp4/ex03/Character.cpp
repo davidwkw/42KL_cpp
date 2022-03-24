@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:50 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/24 21:34:21 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/24 23:02:40 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ std::string const & Character::getName(void) const
 
 AMateria * Character::getInventory(size_t index) const
 {
-	return (this->getInventory(index));
+	return (this->_inventory[index]);
 }
 
 void Character::equip(AMateria* m)
