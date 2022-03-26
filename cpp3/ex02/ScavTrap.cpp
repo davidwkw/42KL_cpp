@@ -5,26 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 14:06:25 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/26 21:21:03 by kwang            ###   ########.fr       */
+/*   Created: 2022/02/24 14:06:52 by kwang             #+#    #+#             */
+/*   Updated: 2022/03/26 23:45:26 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+int const ScavTrap::_init_hp = 100;
+int const ScavTrap::_init_ep = 50;
+int const ScavTrap::_init_dmg = 20;
+
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	this->_hitPoints = ScavTrap::_init_hp;
+	this->_energyPoints = ScavTrap::_init_ep;
+	this->_atkDmg = ScavTrap::_init_dmg;
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	return;
 }
 
 ScavTrap::ScavTrap(std::string const name) : ClapTrap()
 {
 	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_atkDmg = 20;
-	std::cout << "ScavTrap " << this->_name << " was created" << std::endl;
+	this->_hitPoints = ScavTrap::_init_hp;
+	this->_energyPoints = ScavTrap::_init_ep;
+	this->_atkDmg = ScavTrap::_init_dmg;
+	std::cout << "ScavTrap " << this->_name << " was created with " << this->_hitPoints << " hp, "
+			  << this->_energyPoints << " energy points, and " << this->_atkDmg << " attack damage"
+			  << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap()
