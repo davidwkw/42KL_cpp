@@ -6,15 +6,22 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:09 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/26 21:45:52 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 21:57:17 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void)
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string const name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDmg(0)
 {
-	std::cout << "ClapTrap " << this->_name << " was created" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " was created with " << this->_hitPoints << " hp, "
+			  << this->_energyPoints << " energy points, and " << this->_atkDmg << " attack damage"
+			  << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap & src) : _name(src._name), _hitPoints(src._hitPoints), _energyPoints(src._energyPoints), _atkDmg(src._atkDmg)
