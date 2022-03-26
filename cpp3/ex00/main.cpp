@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:04 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:07:05 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 12:54:33 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(void)
 {
-	ClapTrap og_bot("Billy Bob");
 
+	std::cout << "Claptrap tests\n";
+	ClapTrap og_bot("Billy Bob");
 	og_bot.attack("bot boi");
 	std::cout << og_bot.getName() << "'s energy points left: " << og_bot.getEnergyPoints() << "\n";
 	og_bot.takeDamage(5);

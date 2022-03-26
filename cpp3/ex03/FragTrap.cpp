@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:06:09 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:06:11 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 21:21:12 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap(void) : ClapTrap()
 	return;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string const name) : ClapTrap()
 {
 	this->_name = name;
 	this->_hitPoints = 100;
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << "FragTrap " << this->_name << " was created" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap & src) : ClapTrap(src._name)
+FragTrap::FragTrap(const FragTrap & src) : ClapTrap()
 {
 	std::cout << "FragTrap " << this->_name << " was copied" << std::endl;
 	*this = src;
@@ -38,10 +38,10 @@ FragTrap & FragTrap::operator=(const FragTrap & src)
 	std::cout << "FragTrap assignment operator called" << std::endl;
 	if (this != &src)
 	{
-		this->_name = src.getName();
-		this->_hitPoints = src.getHitPoints();
-		this->_energyPoints = src.getEnergyPoints();
-		this->_atkDmg = src.getAtkDmg();
+		this->_name = src._name;
+		this->_hitPoints = src._hitPoints;
+		this->_energyPoints = src._energyPoints;
+		this->_atkDmg = src._atkDmg;
 	}
 	return (*this);
 }

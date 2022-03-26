@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:05:56 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:06:02 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 12:56:51 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(void)
 	std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDmg(0)
+ClapTrap::ClapTrap(std::string const name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDmg(0)
 {
 	std::cout << "ClapTrap " << this->_name << " was created" << std::endl;
 }
@@ -57,10 +57,10 @@ ClapTrap & ClapTrap::operator=(const ClapTrap & src)
 	std::cout << "ClapTrap assignment operator called" << std::endl;
 	if (this != &src)
 	{
-		this->_name = src.getName();
-		this->_hitPoints = src.getHitPoints();
-		this->_energyPoints = src.getEnergyPoints();
-		this->_atkDmg = src.getAtkDmg();
+		this->_name = src._name;
+		this->_hitPoints = src._hitPoints;
+		this->_energyPoints = src._energyPoints;
+		this->_atkDmg = src._atkDmg;
 	}
 	return (*this);
 }

@@ -6,13 +6,13 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:09 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/03 02:02:04 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 21:45:52 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDmg(0)
+ClapTrap::ClapTrap(std::string const name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDmg(0)
 {
 	std::cout << "ClapTrap " << this->_name << " was created" << std::endl;
 }
@@ -52,10 +52,10 @@ ClapTrap & ClapTrap::operator=(const ClapTrap & src)
 	std::cout << "ClapTrap assignment operator called" << std::endl;
 	if (this != &src)
 	{
-		this->_name = src.getName();
-		this->_hitPoints = src.getHitPoints();
-		this->_energyPoints = src.getEnergyPoints();
-		this->_atkDmg = src.getAtkDmg();
+		this->_name = src._name;
+		this->_hitPoints = src._hitPoints;
+		this->_energyPoints = src._energyPoints;
+		this->_atkDmg = src._atkDmg;
 	}
 	return (*this);
 }
@@ -65,13 +65,13 @@ void ClapTrap::attack(const std::string& target)
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_atkDmg << " points of damage!" << std::endl;
-		this->_energyPoints-= 1;
+		this->_energyPoints -= 1;
 	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount > (unsigned int)this->_hitPoints)
+	if (amount > static_cast<unsigned int>(this->_hitPoints))
 		amount = this->_hitPoints;
 	std::cout << "ClapTrap " << this->_name << " was attacked, receiving " << amount << " points of damage!" << std::endl;;
 	this->_hitPoints -= amount;

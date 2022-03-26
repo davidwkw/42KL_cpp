@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:06:25 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:06:27 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 21:21:03 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	return;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string const name) : ClapTrap()
 {
 	this->_name = name;
 	this->_hitPoints = 100;
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << this->_name << " was created" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap(src._name)
+ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap()
 {
 	std::cout << "ScavTrap " << this->_name << " was copied" << std::endl;
 	*this = src;
@@ -42,10 +42,10 @@ ScavTrap & ScavTrap::operator=(const ScavTrap & src)
 {
 	if (this != &src)
 	{
-		this->_name = src.getName();
-		this->_hitPoints = src.getHitPoints();
-		this->_energyPoints = src.getEnergyPoints();
-		this->_atkDmg = src.getAtkDmg();
+		this->_name = src._name;
+		this->_hitPoints = src._hitPoints;
+		this->_energyPoints = src._energyPoints;
+		this->_atkDmg = src._atkDmg;
 	}
 	return (*this);
 }

@@ -6,27 +6,26 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:06:05 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:06:06 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 21:23:54 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(void) : ClapTrap(), FragTrap(), ScavTrap()
 {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap & src) : ClapTrap(src._name), FragTrap(src._name), ScavTrap(src._name)
+DiamondTrap::DiamondTrap(const DiamondTrap & src) : ClapTrap(), FragTrap(), ScavTrap()
 {
 	std::cout << "DiamondTrap " << this->_name << " was copied" << std::endl;
 	*this = src;
 }
 
-DiamondTrap::DiamondTrap(const std::string name) : FragTrap(name), ScavTrap(name)
+DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap()
 {
 	this->_name = name;
-	ClapTrap::_name = this->_name + "_clap_name";
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_atkDmg = FragTrap::_atkDmg;
@@ -42,10 +41,10 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap & src)
 {
 	if (this != &src)
 	{
-		this->_name = src.getName();
-		this->_hitPoints = src.getHitPoints();
-		this->_energyPoints = src.getEnergyPoints();
-		this->_atkDmg = src.getAtkDmg();
+		this->_name = src._name;
+		this->_hitPoints = src._hitPoints;
+		this->_energyPoints = src._energyPoints;
+		this->_atkDmg = src._atkDmg;
 	}
 	return (*this);
 }

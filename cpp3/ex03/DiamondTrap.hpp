@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:06:07 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/24 14:06:08 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/26 12:58:09 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
 	public:
 		DiamondTrap(const DiamondTrap & src);
-		DiamondTrap(const std::string name);
+		DiamondTrap(std::string const name);
 		~DiamondTrap(void);
 		DiamondTrap & operator=(const DiamondTrap & src);
 
