@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 14:06:11 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/26 12:57:52 by kwang            ###   ########.fr       */
+/*   Created: 2022/02/24 14:06:36 by kwang             #+#    #+#             */
+/*   Updated: 2022/03/27 00:03:14 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 class FragTrap : virtual public ClapTrap
 {
 	protected:
+		static int const _init_hp;
+		static int const _init_ep;
+		static int const _init_dmg;
 		FragTrap(void);
 
 	public:

@@ -6,14 +6,21 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:06:05 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/26 21:23:54 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 00:24:42 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
+int const DiamondTrap::_init_hp = FragTrap::_init_hp;
+int const DiamondTrap::_init_ep = ScavTrap::_init_ep;
+int const DiamondTrap::_init_dmg = FragTrap::_init_dmg;
+
 DiamondTrap::DiamondTrap(void) : ClapTrap(), FragTrap(), ScavTrap()
 {
+	this->_hitPoints = DiamondTrap::_init_hp;
+	this->_energyPoints = DiamondTrap::_init_ep;
+	this->_atkDmg = DiamondTrap::_init_dmg;
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
@@ -26,10 +33,12 @@ DiamondTrap::DiamondTrap(const DiamondTrap & src) : ClapTrap(), FragTrap(), Scav
 DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap()
 {
 	this->_name = name;
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_atkDmg = FragTrap::_atkDmg;
-	std::cout << "DiamondTrap " << this->_name << " was created" << std::endl;
+	this->_hitPoints = DiamondTrap::_init_hp;
+	this->_energyPoints = DiamondTrap::_init_ep;
+	this->_atkDmg = DiamondTrap::_init_dmg;
+	std::cout << "DiamondTrap " << this->_name << " was created with " << this->_hitPoints << " hp, "
+			  << this->_energyPoints << " energy points, and " << this->_atkDmg << " attack damage"
+			  << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void)
