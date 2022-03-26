@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:24 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/24 17:29:21 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 00:27:30 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ Fixed::Fixed(int const num)
 Fixed::Fixed(float const num)
 {
 	std::cout << "Float constructor called\n";
-	this->_value = static_cast<int>(roundf(num * (1 << this->_bits)));
+	this->_value = static_cast<int>(roundf(num * (1 << Fixed::_bits)));
 }
 
 float Fixed::toFloat(void) const
 {
-	return (static_cast<float>(this->_value / 1 << this->_bits));
+	return (static_cast<float>(this->_value / 1 << Fixed::_bits));
 }
 
 int Fixed::toInt(void) const
 {
-	return (this->_value >> this->_bits);
+	return (this->_value >> Fixed::_bits);
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs){

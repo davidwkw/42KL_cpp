@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:46 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:03:37 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 00:28:22 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Fixed::Fixed(int const num)
 
 Fixed::Fixed(float const num)
 {
-	this->_value = static_cast<int>(roundf(num * (1 << this->_bits)));
+	this->_value = static_cast<int>(roundf(num * (1 << Fixed::_bits)));
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs){
@@ -140,12 +140,12 @@ Fixed Fixed::operator--(int)
 
 float Fixed::toFloat(void) const
 {
-	return (static_cast<float>(this->_value) / static_cast<float>((1 << this->_bits)));
+	return (static_cast<float>(this->_value) / static_cast<float>((1 << Fixed::_bits)));
 }
 
 int Fixed::toInt(void) const
 {
-	return (this->_value >> this->_bits);
+	return (this->_value >> Fixed::_bits);
 }
 
 Fixed & Fixed::min(Fixed & a, Fixed & b)
