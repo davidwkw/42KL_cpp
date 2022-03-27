@@ -6,23 +6,20 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:33 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:34 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:30:32 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : Animal("Cat"), _brain(new Brain)
 {
 	std::cout << "Default cat class constructor was called" << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain;
 }
 
-Cat::Cat(const Cat & src) : Animal()
+Cat::Cat(const Cat & src) : Animal(), _brain(new Brain)
 {
 	std::cout << "Cat copy constructor was called" << std::endl;
-	this->_brain = new Brain;
 	*this = src;
 }
 
@@ -37,7 +34,7 @@ Cat & Cat::operator=(const Cat & src)
 	std::cout << "Cat assignment operator was called" << std::endl;
 	if (this != &src)
 	{
-		this->type = src.getType();
+		this->_type = src._type;
 		for (int i = 0; i < 100; i++)
 			this->_brain->setIdea(src.getBrain()->getIdea(i), i);
 	}

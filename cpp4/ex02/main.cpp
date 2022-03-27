@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:23:46 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/02 12:11:50 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:33:45 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int main(void)
 	dog1.getBrain()->setIdea("I am now a bad doggo", 0);
 	std::cout << "Dog1: " << dog1.getBrain()->getIdea(0) << "\n";
 	std::cout << "Dog2: " << dog2.getBrain()->getIdea(0) << "\n";
-
 	std::cout << std::endl;
 
+	// Can't instantiate animal because it is an abstract class
 	// Animal animal;
 
 	return 0;

@@ -6,16 +6,15 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:42 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:42 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:32:38 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal()
+WrongCat::WrongCat(void) : WrongAnimal("Wrong cat")
 {
 	std::cout << "Default wrong cat class constructor was called" << std::endl;
-	this->type = "Wrong cat";
 }
 
 WrongCat::~WrongCat(void)
@@ -33,6 +32,6 @@ WrongCat & WrongCat::operator=(const WrongCat & src)
 {
 	std::cout << "Cat assignment operator was called" << std::endl;
 	if (this != &src)
-		this->type = src.getType();
+		this->_type = src._type;
 	return (*this);
 }
