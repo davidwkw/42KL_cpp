@@ -6,16 +6,15 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:51 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:52 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:07:59 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal()
+Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << "Default dog class constructor was called" << std::endl;
-	this->type = "Dog";
 }
 
 Dog::Dog(const Dog & src) : Animal()
@@ -33,7 +32,7 @@ Dog & Dog::operator=(const Dog & src)
 {
 	std::cout << "Dog assignment operator was called" << std::endl;
 	if (this != &src)
-		this->type = src.getType();
+		this->_type = src._type;
 	return (*this);
 }
 

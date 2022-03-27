@@ -6,16 +6,15 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:48 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:49 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:06:57 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << "Default cat class constructor was called" << std::endl;
-	this->type = "Cat";
 }
 
 Cat::Cat(const Cat & src) : Animal()
@@ -33,7 +32,7 @@ Cat & Cat::operator=(const Cat & src)
 {
 	std::cout << "Cat assignment operator was called" << std::endl;
 	if (this != &src)
-		this->type = src.getType();
+		this->_type = src._type;
 	return (*this);
 }
 

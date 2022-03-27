@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:58 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:58 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:10:51 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@
 class WrongAnimal
 {
 	protected:
-		std::string type;
+		std::string _type;
 	public:
 		WrongAnimal(void);
+		WrongAnimal(std::string const type);
 		~WrongAnimal(void);
 		WrongAnimal(const WrongAnimal & src);
 		WrongAnimal & operator=(const WrongAnimal & src);
 
-	void makeSound(void) const;
+		void makeSound(void) const;
 		std::string getType(void) const;
 };
 

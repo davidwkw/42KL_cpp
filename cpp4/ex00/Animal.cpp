@@ -6,16 +6,18 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:23:49 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/01 17:56:47 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:06:38 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : type("Animal")
+Animal::Animal(void) : _type("Animal")
 {
 	std::cout << "Default animal class constructor was called" << std::endl;
 }
+
+Animal::Animal(std::string const type) : _type(type) {}
 
 Animal::Animal(const Animal & src)
 {
@@ -32,13 +34,13 @@ Animal & Animal::operator=(const Animal & src)
 {
 	std::cout << "Animal assignment operator was called" << std::endl;
 	if (this != &src)
-		this->type = src.getType();
+		this->_type = src._type;
 	return (*this);
 }
 
 std::string Animal::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void Animal::makeSound(void) const
