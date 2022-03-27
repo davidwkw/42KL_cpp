@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:11 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:12 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:15:44 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Cat : public Animal
 		Cat & operator=(const Cat & src);
 
 		void makeSound(void) const;
-		Brain * getBrain(void) const;
+		Brain *getBrain(void) const;
 };
 
 #endif

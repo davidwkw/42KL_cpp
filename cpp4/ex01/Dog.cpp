@@ -6,23 +6,20 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:12 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:13 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:19:33 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal()
+Dog::Dog(void) : Animal("Dog"), _brain(new Brain)
 {
 	std::cout << "Default dog class constructor was called" << std::endl;
-	this->type = "Dog";
-	this->_brain = new Brain;
 }
 
-Dog::Dog(const Dog & src) : Animal()
+Dog::Dog(const Dog & src) : Animal(), _brain(new Brain)
 {
 	std::cout << "Dog copy constructor was called" << std::endl;
-	this->_brain = new Brain;
 	*this = src;
 }
 
@@ -37,7 +34,7 @@ Dog & Dog::operator=(const Dog & src)
 	std::cout << "Dog assignment operator was called" << std::endl;
 	if (this != &src)
 	{
-		this->type = src.getType();
+		this->_type = src._type;
 		for (int i = 0; i < 100; i++)
 			this->_brain->setIdea(src.getBrain()->getIdea(i), i);
 	}

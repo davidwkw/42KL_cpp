@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:23:52 by kwang             #+#    #+#             */
-/*   Updated: 2022/02/27 23:02:18 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:06:41 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 class Animal
 {
 	protected:
-		std::string type;
+		std::string _type;
 	public:
 		Animal(void);
+		Animal(std::string const type);
 		Animal(const Animal & src);
 		virtual ~Animal(void);
 		Animal & operator=(const Animal & src);

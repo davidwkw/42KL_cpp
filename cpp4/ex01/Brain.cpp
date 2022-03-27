@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:35:07 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:35:08 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:25:28 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ Brain & Brain::operator=(const Brain & src)
 	if (this != &src)
 	{
 		for (int i = 0; i < 100; i++)
-			this->_ideas[i] = src.getIdea(i);
+			this->_ideas[i] = src._ideas[i];
 	}
 	return (*this);
 }
 
-std::string Brain::getIdea(size_t index) const
+std::string Brain::getIdea(size_t const index) const
 {
 	return (this->_ideas[index]);
 }
 
-void Brain::setIdea(std::string str, size_t index)
+void Brain::setIdea(std::string const str, size_t const index)
 {
 	this->_ideas[index] = str;
 }
