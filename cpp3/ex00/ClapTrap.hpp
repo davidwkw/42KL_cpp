@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:07:07 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/26 23:24:00 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/28 14:47:12 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap
 {
-	protected:
+	private:
 		std::string	_name;
 		int	_hitPoints;
 		int	_energyPoints;
