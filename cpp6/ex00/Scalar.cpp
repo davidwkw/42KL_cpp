@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:32:47 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:32:48 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 14:00:29 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,8 @@ Scalar & Scalar::operator=(const Scalar & src)
 {
 	if (this != &src)
 	{
-		this->_value = src.getRawValue();
-		this->_type = src.getType();
+		this->_value = src._value;
+		this->_type = src._type;
 	}
 	return (*this);
 }
