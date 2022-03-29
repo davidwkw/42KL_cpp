@@ -6,99 +6,82 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:27 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:27 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 23:18:46 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
-void	print(std::string str)
-{
-	std::cout << str << "\n";
-}
-
-void	print_nonl(std::string str)
-{
-	std::cout << str ;
-}
+#include <iostream>
 
 int main()
 {
-	print("====FORM CREATION TESTS===");
-	print("form('name', 2,2) : ");
-	Form test("name",2,2);
-	std::cout << test;
-	print("");print("");
-
+	std::cout << "Form creation tests: " << '\n';
+	std::cout << "Valid form: " << '\n';
 	try
 	{
-		print("form('name', 0, 2)");
-		Form test("name",0,2);
+		std::cout << "form('Contract', 69, 96)" << '\n';
+		Form form("Contract", 69, 96);
 	}
 	catch(const std::exception& e)
 	{
-		print(e.what());
+		std::cout << e.what() << '\n';
 	}
+	std::cout << '\n';
 
-	print("");
+	std::cout << "Invalid sign grade: " << '\n';
 	try
 	{
-		print("form('name', 2, 1234)");
-		Form test("name",2, 1234);
+		std::cout << "form('Contract', 0, 120)" << '\n';
+		Form form("Contract", 0, 120);
 	}
 	catch(const std::exception& e)
 	{
-		print(e.what());
+		std::cout << e.what() << '\n';
 	}
+	std::cout << '\n';
 
-	print("==========================");
-
-	print("");
-
-	print("====FORM SIGNING TESTS===");
-	Bureaucrat crat("john", 69);
-	std::cout << crat << " created \n";
-
-	print("");
-	Form test2("name", 70, 12);
-	print("john signs Form('name', 70, 12)");
-	std::cout << test2 << "\n";
-	crat.signForm(test2);
-
-	print("");
-	Form test1("name", 69, 12);
-	print("john signs Form('name', 69, 12)");
-	std::cout << test1 << "\n";
-	crat.signForm(test1);
-
+	std::cout << "Invalid exec grade: " << '\n';
 	try
 	{
-		print("");
-		Form test3("name", 68, 12);
-		print("john signs Form('name', 68, 12)");
-		std::cout << test3 << "\n";
-		crat.signForm(test3);	
+		std::cout << "form('Contract', 0, 1337)" << '\n';
+		Form form("Contract", 2, 1337);
 	}
 	catch(const std::exception& e)
 	{
-		print(e.what());
+		std::cout << e.what() << '\n';
 	}
-	
-	print("");
-	Form test4("name", 70, 12);
-	print("Form('name', 70, 12) besigned by john");
-	std::cout << test4 << "\n";
+	std::cout << '\n';
+
+	std::cout << "Form signing test" << '\n';
+	Bureaucrat politician("Bernard", 42);
+	std::cout << politician << " created \n";
+	std::cout << "Normal form: " << '\n';
 	try
 	{
-		test4.beSigned(crat);
+		Form form("Treaty", 69, 96);
+		std::cout << politician.getName() << " tries to sign form " << form.getName() << '\n';
+		std::cout << form << "\n";
+		politician.signForm(form);
 	}
 	catch(const std::exception& e)
 	{
-		print(e.what());
+		std::cout << e.what() << '\n';
 	}
-	print("==========================");
+	std::cout << '\n';
 
+	std::cout << "Insufficient sign grade: " << '\n';
+	try
+	{
+		Form form2("Contract", 10, 43);
+		std::cout << politician.getName() << " tries to sign form " << form2.getName() << '\n';
+		std::cout << form2 << "\n";
+		politician.signForm(form2);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
 	return 0;
 }

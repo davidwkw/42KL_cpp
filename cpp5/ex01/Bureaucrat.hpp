@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:22 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:23 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:55:41 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Bureaucrat
 	private:
 		const std::string _name;
 		int	_grade;
-	public:
 		Bureaucrat(void);
+	public:
 		Bureaucrat(const std::string name, const int grade);
 		Bureaucrat(const Bureaucrat & src);
 		~Bureaucrat(void);

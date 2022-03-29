@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:58 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:59 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 23:57:40 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : Form("S
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src) : Form("Shrubbery Creation Form", 145, 137), _target(src.getTarget())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src) : Form("Shrubbery Creation Form", 145, 137), _target(src._target)
 {
 	*this = src;
 }

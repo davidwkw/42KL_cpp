@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:46 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:50 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 13:35:40 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,92 +16,82 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void	print(std::string str)
-{
-	std::cout << str << "\n";
-}
-
-void	print_nonl(std::string str)
-{
-	std::cout << str ;
-}
-
 int main()
 {
-	Bureaucrat crat("highlvl", 1);
-	Bureaucrat crat1("midlvl", 75);
-	Bureaucrat crat2("lowlvl", 150);
+	Bureaucrat high_grade("high_grade", 1);
+	Bureaucrat low_grade("low_grade", 150);
 
-	print("=====SHRUBBERY FORM TESTS====");
-	try
-	{
-		ShrubberyCreationForm newform("targetasdf");
+	std::cout << high_grade << '\n';
+	std::cout << low_grade << '\n';
 
-		crat.signForm(newform);
-		print("");
-		crat.executeForm(newform);
-		print("");
-		crat1.executeForm(newform);
+	std::cout << "Normal form execution tests:" << "\n\n";
+	std::cout << "ShrubForm test:" << '\n';
+	try
+	{
+		ShrubberyCreationForm shrubForm("PresidentialGarden");
 
+		high_grade.signForm(shrubForm);
+		std::cout << '\n';
+		high_grade.executeForm(shrubForm);
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "error from catch : " << e.what() << "\n";
+		std::cout << "Failed because: " << e.what() << "\n";
 	}
-	print("============================");
-	print("=====ROBOTOMY FORM TESTS====");
+	std::cout << '\n';
+	std::cout << "RobotomyForm test:" << '\n';
 	try
 	{
-		RobotomyRequestForm newformrobo("targetasdf");
-		
-		crat.signForm(newformrobo);
-		print("");
-		crat.executeForm(newformrobo);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
-	print("=====PRESIDENTIAL PARDON TESTS====");
-	try
-	{
-		PresidentialPardonForm newformpred("targetasdf");
-		
-		crat.signForm(newformpred);
-		print("");
-		crat.executeForm(newformpred);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
-	print("=====GRADE TOO LOW TEST====");
-	try
-	{
-		PresidentialPardonForm newformpred("targetasdf");
-		
-		crat1.signForm(newformpred);
-		crat2.executeForm(newformpred);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
-	print("=====NO SIGN TEST====");
-	try
-	{
-		PresidentialPardonForm newformpred("targetasdf");
-		
-		crat2.executeForm(newformpred);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
+		RobotomyRequestForm robotomyForm("Elon Musk");
 
+		high_grade.signForm(robotomyForm);
+		std::cout << '\n';
+		high_grade.executeForm(robotomyForm);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+	std::cout << "PresidentialPardonForm test:" << '\n';
+	try
+	{
+		PresidentialPardonForm pardonForm("Mango Mussolini");
+
+		high_grade.signForm(pardonForm);
+		std::cout << '\n';
+		high_grade.executeForm(pardonForm);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+
+	std::cout << "Unsigned form execution test:"<< '\n';
+	try
+	{
+		RobotomyRequestForm unsignedForm("Mark Zuckerberg");
+
+		high_grade.executeForm(unsignedForm);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+
+	std::cout << "Insufficient grade test:"<< '\n';
+	try
+	{
+		PresidentialPardonForm presidentialForm("Adam");
+
+		low_grade.signForm(presidentialForm);
+		low_grade.executeForm(presidentialForm);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
 	return 0;
 }

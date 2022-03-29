@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:24 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:24 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:54:38 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Form::Form(const std::string name, const int sign_grade, const int exec_grade) :
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form & src) : _name(src.getName()), _sign_grade(src.getSignGrade()), _exec_grade(src.getExecGrade())
+Form::Form(const Form & src) : _name(src._name), _sign_grade(src._sign_grade), _exec_grade(src._exec_grade)
 {
 	*this = src;
 }
@@ -32,7 +32,7 @@ Form::~Form(void) {}
 Form & Form::operator=(const Form & src)
 {
 	if (this != &src)
-		this->_sign = src.getSign();
+		this->_sign = src._sign;
 	return (*this);
 }
 
@@ -82,7 +82,7 @@ std::ostream & operator<<(std::ostream & o, Form const & rhs)
 
 void Form::beSigned(const Bureaucrat & bureaucrat)
 {
-	if (bureaucrat.getGrade() > this->getSignGrade())
+	if (bureaucrat.getGrade() > this->_sign_grade)
 		throw Form::GradeTooLowException();
 	else
 		this->_sign = true;

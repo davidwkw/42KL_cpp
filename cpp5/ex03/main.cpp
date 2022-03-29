@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:10 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:13 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 13:48:06 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,106 +18,83 @@
 #include "PresidentialPardonForm.hpp"
 #include  "Intern.hpp"
 
-void	print(std::string str)
-{
-	std::cout << str << "\n";
-}
-
-void	print_nonl(std::string str)
-{
-	std::cout << str ;
-}
-
 int main()
 {
-	Bureaucrat crat("highlvl", 1);
-	Bureaucrat crat1("midlvl", 75);
-	Bureaucrat crat2("lowlvl", 150);
+	Bureaucrat high_grade("high_grade", 1);
+	Bureaucrat low_grade("low_grade", 150);
 	Intern intern;
 
-	print("=====SHRUBBERY FORM TESTS====");
-	try
-	{
-		Form *newform = intern.makeForm("shrubbery creation", "Bender");
-		
-		crat.signForm(*newform);
-		print("");
-		crat.executeForm(*newform);
-		print("");
-		crat1.executeForm(*newform);
-		delete newform;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
-	print("=====ROBOTOMY FORM TESTS====");
-	try
-	{
-		Form *newformrobo = intern.makeForm("robotomy request", "Bender");
-		
-		crat.signForm(*newformrobo);
-		print("");
-		crat.executeForm(*newformrobo);
-		delete newformrobo;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
-	print("=====PRESIDENTIAL PARDON TESTS====");
-	try
-	{
-		Form * newformpred = intern.makeForm("presidental pardon", "Bender");
-		
-		crat.signForm(*newformpred);
-		print("");
-		crat.executeForm(*newformpred);
-		delete newformpred;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-	}
-	print("============================");
-	print("=====GRADE TOO LOW TEST====");
-	Form *newformpred =  intern.makeForm("presidental pardon", "Bender");
-	try
-	{		
-		crat1.signForm(*newformpred);
-		crat2.executeForm(*newformpred);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-		delete newformpred;
-	}
-	print("============================");
-	print("=====NO SIGN TEST====");
-	newformpred =  intern.makeForm("presidental pardon", "Bender");
-	try
-	{		
-		crat2.executeForm(*newformpred);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "error from catch : " << e.what() << "\n";
-		delete newformpred;
-	}
-	print("============================");
-	print("=====UNKNOWN TEST====");
-	try
-	{
-		newformpred =  intern.makeForm("presion", "Bender");
-	}
-	catch (std::exception & e)
-	{
-		print(e.what());
-	}
-	delete newformpred;
-	print("============================");
+	std::cout << high_grade << '\n';
+	std::cout << low_grade << '\n';
 
+	std::cout << "Normal form execution tests:" << "\n\n";
+	std::cout << "ShrubForm test:" << '\n';
+	try
+	{
+		Form *shrubForm = intern.makeForm("shrubbery creation", "PresidentialGarden");
+		high_grade.signForm(*shrubForm);
+		std::cout << '\n';
+		high_grade.executeForm(*shrubForm);
+		delete shrubForm;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+	std::cout << "RobotomyForm test:" << '\n';
+	try
+	{
+		Form *robotomyForm = intern.makeForm("robotomy request", "Elon Musk");
+		high_grade.signForm(*robotomyForm);
+		std::cout << '\n';
+		high_grade.executeForm(*robotomyForm);
+		delete robotomyForm;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+	std::cout << "PresidentialPardonForm test:" << '\n';
+	try
+	{
+		Form *pardonForm = intern.makeForm("presidential pardon", "Mango Mussolini");
+		high_grade.signForm(*pardonForm);
+		std::cout << '\n';
+		high_grade.executeForm(*pardonForm);
+		delete pardonForm;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+
+	std::cout << "Unsigned form execution test:"<< '\n';
+	try
+	{
+		Form *unsignedForm = intern.makeForm("presidential pardon", "Mango Mussolini");
+		high_grade.executeForm(*unsignedForm);
+		delete unsignedForm;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
+	std::cout << '\n';
+
+	std::cout << "Unknown form test:"<< '\n';
+	try
+	{
+		Form *fakeForm = intern.makeForm("doesn't exist", "dummy");
+		low_grade.signForm(*fakeForm);
+		low_grade.executeForm(*fakeForm);
+		delete fakeForm;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Failed because: " << e.what() << "\n";
+	}
 	return 0;
 }

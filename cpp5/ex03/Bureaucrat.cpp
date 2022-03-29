@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:32:57 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:32:58 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 12:29:17 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name), _
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat & src) : _name(src.getName())
+Bureaucrat::Bureaucrat(const Bureaucrat & src) : _name(src._name)
 {
 	*this = src;
 }
@@ -32,7 +32,7 @@ Bureaucrat::~Bureaucrat(void) {}
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & src)
 {
 	if (this != &src)
-		this->_grade = src.getGrade();
+		this->_grade = src._grade;
 	return (*this);
 }
 

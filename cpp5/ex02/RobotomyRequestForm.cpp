@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:56 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:56 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 23:57:32 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) : Form("Robot
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src) : Form("Robotomy Request Form", 72, 45), _target(src.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src) : Form("Robotomy Request Form", 72, 45), _target(src._target)
 {
 	*this = src;
 }
@@ -27,9 +27,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src) : Form
 RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm & src)
 {
 	if (this != &src)
-	{
 		this->setSign(src.getSign());
-	}
 	return (*this);
 }
 

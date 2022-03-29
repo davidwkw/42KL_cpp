@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:04 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:06 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 12:34:01 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Form
 		const int _sign_grade;
 		const int _exec_grade;
 		bool _sign;
-	public:
 		Form(void);
+	public:
 		Form(const Form & src);
 		Form(const std::string name, const int sign_grade, const int exec_grade);
 		virtual ~Form(void);

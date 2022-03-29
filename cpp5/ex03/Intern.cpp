@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:06 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:08 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 13:46:12 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Form * Intern::makeForm(const std::string form_name, const std::string target)
 	Form * form;
 
 	const std::string forms[] = {
-		"presidental pardon",
+		"presidential pardon",
 		"robotomy request",
 		"shrubbery creation",
 	};

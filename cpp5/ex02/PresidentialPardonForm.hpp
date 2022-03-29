@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:53 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:54 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/28 01:00:37 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class PresidentialPardonForm : public Form
 {
 	private:
 		const std::string _target;
-	public:
 		PresidentialPardonForm(void);
+	public:
 		PresidentialPardonForm(const std::string target);
 		PresidentialPardonForm(const PresidentialPardonForm & src);
 		~PresidentialPardonForm(void);

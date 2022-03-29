@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:21 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:22 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 12:35:09 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) : Form("Robot
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src) : Form("Robotomy Request Form", 72, 45), _target(src.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src) : Form("Robotomy Request Form", 72, 45), _target(src._target)
 {
 	*this = src;
 }

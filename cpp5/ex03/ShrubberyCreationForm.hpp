@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:28 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:30 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 12:35:30 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class ShrubberyCreationForm : public Form
 {
 	private:
 		const std::string _target;
-	public:
 		ShrubberyCreationForm(void);
+	public:
 		ShrubberyCreationForm(const std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm & src);
 		~ShrubberyCreationForm(void);

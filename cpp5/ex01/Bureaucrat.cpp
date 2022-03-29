@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:34:21 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:34:21 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 11:47:03 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Bureaucrat::~Bureaucrat(void) {}
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & src)
 {
 	if (this != &src)
-		this->_grade = src.getGrade();
+		this->_grade = src._grade;
 	return (*this);
 }
 

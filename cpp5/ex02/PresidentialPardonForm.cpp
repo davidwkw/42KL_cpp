@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:33:52 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:33:53 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/27 23:57:06 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string target) : Form(
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & src) : Form("Presidential Pardon Form", 25, 5), _target(src.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & src) : Form("Presidential Pardon Form", 25, 5), _target(src._target)
 {
 	*this = src;
 }
@@ -26,9 +26,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & sr
 PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm & src)
 {
 	if (this != &src)
-	{
 		this->setSign(src.getSign());
-	}
 	return (*this);
 }
 
