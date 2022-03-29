@@ -13,7 +13,7 @@ all : $(NAME);
 
 $(NAME) : $(OBJS)
 	@echo "Creating $(NAME)"
-	@$(CXX) $(CFLAGS) -o $@ $^
+	@$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean :
 	@rm -rf $(OBJS)

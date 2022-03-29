@@ -6,7 +6,7 @@
 #    By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/24 14:08:12 by kwang             #+#    #+#              #
-#    Updated: 2022/03/23 22:31:29 by kwang            ###   ########.fr        #
+#    Updated: 2022/03/29 13:53:38 by kwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all : $(NAME);
 
 $(NAME) : $(OBJS)
 	@echo "Creating $(NAME)"
-	@$(CXX) $(CFLAGS) -o $@ $^
+	@$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean :
 	@rm -rf $(OBJS)

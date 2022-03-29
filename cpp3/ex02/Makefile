@@ -6,7 +6,7 @@
 #    By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/24 14:06:32 by kwang             #+#    #+#              #
-#    Updated: 2022/02/24 14:06:34 by kwang            ###   ########.fr        #
+#    Updated: 2022/03/28 17:48:42 by kwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 NAME = fragtrap
 
-all : $(NAME);
+all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@echo "Creating $(NAME)"
