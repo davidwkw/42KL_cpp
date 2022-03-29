@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:30:20 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:30:21 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/30 00:19:34 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void Span::assign(InputIterator first, InputIterator last)
 {
 	for (;first != last; ++first)
 	{
-		if (this->_span.size < this->_max_size)
+		if (this->_span.size() < this->_max_size)
 			this->_span.push_back(*first);
 		else
 			throw SpanIsFullException();
