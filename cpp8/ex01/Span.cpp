@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:30:22 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:30:24 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/30 00:15:41 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ const char * Span::SpanIsFullException::what() const throw()
 
 void Span::addNumber(int value)
 {
-	if (this->_span.size() < this->_max_size)
+	if (this->_span.size() <= this->_max_size)
 		this->_span.push_back(value);
 	else
 		throw SpanIsFullException();
