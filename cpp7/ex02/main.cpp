@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:32:13 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:32:14 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/29 16:24:49 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ void print(T value)
 
 int	main(void)
 {
-	// Array<int> arr;
-
-	// print(arr[0]);
-
 	print("Testing parameterised constructor and value assignement\n");
 	Array<int> arr2(5);
 	for (int i = 0; i < 5; i++)
