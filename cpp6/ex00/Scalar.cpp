@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:32:47 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/29 14:00:29 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/31 14:01:37 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ Scalar::Scalar(std::string str)
 		this->_type = this->checkScalarType(str);
 	else
 		this->_type = CHAR;
-	if (this->_type == CHAR)
+	if (this->_type == CHAR && (std::isdigit(str[0]) == 0))
 		str = this->characterToAsciiValueStr(str[0]);
 	else if (this->_type == FLOAT)
 		str.erase(str.size() - 1, 1);
@@ -135,7 +135,7 @@ Scalar::data_type Scalar::getType(void) const
 	return (this->_type);
 }
 
-Scalar::data_type Scalar::checkScalarType(const std::string str)
+Scalar::data_type Scalar::checkScalarType(const std::string &str)
 {
 	std::string pseudo_literal[] = {
 		"-inff",
@@ -157,7 +157,6 @@ Scalar::data_type Scalar::checkScalarType(const std::string str)
 				return (DOUBLE);
 		}
 	}
-
 	size_t decimals = 0;
 	size_t pos = 0;
 	size_t negatives = 0;

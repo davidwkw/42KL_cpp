@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:32:49 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:32:53 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/31 14:00:46 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define SCALAR_HPP
 # include <string>
+# include <cctype>
 # include <iostream>
 # include <exception>
 # include <stdexcept>
@@ -50,7 +51,7 @@ class Scalar
 		Scalar(const Scalar & src);
 		Scalar & operator=(const Scalar & src);
 
-		data_type checkScalarType(const std::string str);
+		data_type checkScalarType(const std::string &str);
 		double getRawValue(void) const;
 		data_type getType(void) const;
 

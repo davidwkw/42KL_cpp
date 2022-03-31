@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:32:28 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:32:30 by kwang            ###   ########.fr       */
+/*   Updated: 2022/03/31 13:22:15 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void identify(Base& p)
 		std::cout << "Object is of class A type" << std::endl;
 		return;
 	}
-	catch (std::exception &e)
+	catch (std::exception const &e)
 	{
 	}
 	try
@@ -78,7 +78,7 @@ void identify(Base& p)
 		std::cout << "Object is of class B type" << std::endl;
 		return;
 	}
-	catch (std::exception &e)
+	catch (std::exception const &e)
 	{
 	}
 	try
@@ -87,7 +87,7 @@ void identify(Base& p)
 		std::cout << "Object is of class C type" << std::endl;
 		return;
 	}
-	catch (std::exception &e)
+	catch (std::exception const &e)
 	{
 	}
 }
