@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:31:30 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:31:32 by kwang            ###   ########.fr       */
+/*   Updated: 2022/04/04 17:07:03 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Array {
 		Array(unsigned int n);
 		~Array(void);
 		Array(Array<T> const & src);
-		Array<T> & operator=(Array<T> const & src);
-		T & operator[](int i);
+		Array<T> &operator=(Array<T> const & src);
+		T &operator[](int i);
 
 		T * getArray(void) const;
 		unsigned int size(void) const;
@@ -41,19 +41,13 @@ class Array {
 };
 
 template <typename T>
-Array<T>::Array(void) : _array(NULL) , _size(0) {}
+Array<T>::Array(void) : _array(new T[0]) , _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _size(n)
-{
-	if (n == 0)
-		this->_array = NULL;
-	else
-		this->_array = new T[n];
-}
+Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
 
 template <typename T>
-Array<T>::Array(Array<T> const & src) : _size(src.size())
+Array<T>::Array(Array<T> const & src) : _array(new T[src._size]) ,_size(src._size)
 {
 	*this = src;
 }
@@ -80,10 +74,8 @@ Array<T> & Array<T>::operator=(Array<T> const & src)
 {
 	if (this != &src)
 	{
-		this->_size = src.size();
-		this->_array = new T[src.size()];
-		for (unsigned int i = 0; i < src.size(); i++)
-			this->_array[i] = src.getArray()[i];
+		for (unsigned int i = 0; i < src._size; i++)
+			this->_array[i] = src._array[i];
 	}
 	return (*this);
 }
