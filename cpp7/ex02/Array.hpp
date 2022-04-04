@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:31:30 by kwang             #+#    #+#             */
-/*   Updated: 2022/04/04 17:07:03 by kwang            ###   ########.fr       */
+/*   Updated: 2022/04/04 17:20:58 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,5 @@ const char * Array<T>::IndexOutOfBoundsException::what() const throw()
 {
 	return ("Index is out of bounds");
 }
-
 
 #endif
