@@ -6,7 +6,7 @@
 /*   By: kwang <kwang@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:30:01 by kwang             #+#    #+#             */
-/*   Updated: 2022/03/23 22:30:03 by kwang            ###   ########.fr       */
+/*   Updated: 2022/04/06 14:55:52 by kwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-		MutantStack(void);
-		~MutantStack(void);
-		MutantStack(MutantStack const & src);
-		MutantStack & operator=(MutantStack const & src);
-
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
@@ -42,25 +37,6 @@ class MutantStack : public std::stack<T>
 		reverse_iterator rend();
 		const_reverse_iterator rend() const;
 };
-
-template <typename T>
-MutantStack<T>::MutantStack(void) {}
-
-template <typename T>
-MutantStack<T>::~MutantStack(void) {}
-
-template <typename T>
-MutantStack<T>::MutantStack(MutantStack const & src)
-{
-	*this = src;
-}
-
-template <typename T>
-MutantStack<T> & MutantStack<T>::operator=(MutantStack<T> const & src)
-{
-	(void)src;
-	return (*this)
-}
 
 template <typename T>
 MutantStack<T>::MutantStack(void) {}
