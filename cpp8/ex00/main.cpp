@@ -22,7 +22,7 @@ int	main()
 	vect.push_back(69);
 	vect.push_back(420);
 	vect.push_back(1337);
-	std::cout << "Testing vector\n";
+	std::cout << "Testing vector with locatable integer\n";
 	try
 	{
 		std::vector<int>::iterator it = easyfind< std::vector<int> >(vect, 420);
@@ -37,7 +37,7 @@ int	main()
 	deq.push_back(69);
 	deq.push_back(420);
 	deq.push_back(1337);
-	std::cout << "Testing deque\n";
+	std::cout << "Testing deque with locatable integer\n";
 	try
 	{
 		std::deque<int>::iterator it = easyfind< std::deque<int> >(deq, 1337);
@@ -52,7 +52,7 @@ int	main()
 	lst.push_back(69);
 	lst.push_back(420);
 	lst.push_back(1337);
-	std::cout << "Testing list\n";
+	std::cout << "Testing list with locatable\n";
 	try
 	{
 		std::list<int>::iterator it = easyfind< std::list<int> >(lst, 69);
@@ -73,7 +73,6 @@ int	main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 
 	return 0;
 }

@@ -22,7 +22,7 @@ class ValueNotFoundException : public std::exception
 	public:
 		const char *what() const throw()
 		{
-			return "Value not found";
+			return "Value not locatable";
 		}
 };
 
