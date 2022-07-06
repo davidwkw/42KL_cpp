@@ -92,7 +92,7 @@ int main()
 	{
 		print("Shortest span:\n");
 		print(sp2.shortestSpan(), "\n");
-		std::cout << "1000 - 900 == 100 is "<< std::boolalpha << (1000 - 900 == 100);
+		std::cout << "1000 - 900 == 100 is "<< std::boolalpha << ((1000 - 900) == 100);
 	}
 	catch(const Span::NoSpanFoundException& e)
 	{
@@ -103,7 +103,7 @@ int main()
 	{
 		print("Longest span:\n");
 		print(sp2.longestSpan(), "\n");
-		std::cout << "1000 - 400 == 600 is " << std::boolalpha << (1000 - 400 == 600);
+		std::cout << "1000 - 400 == 600 is " << std::boolalpha << ((1000 - 400) == 600);
 	}
 	catch(const Span::NoSpanFoundException& e)
 	{
