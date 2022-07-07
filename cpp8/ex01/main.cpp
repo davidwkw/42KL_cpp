@@ -13,6 +13,8 @@
 #include "Span.hpp"
 #include <iostream>
 #include <ctime>
+#include <algorithm>
+#include <vector>
 
 template <typename T>
 void print(T val)
@@ -35,10 +37,11 @@ int main()
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
+	print("Numbers within the span are 6, 3, 17,9, 11\n");
 	print("Shortest span:\n");
 	std::cout << sp.shortestSpan() << std::endl;
 	print("Longest span:\n");
-	std::cout << sp.longestSpan() << std::endl;
+	std::cout << sp.longestSpan() << '\n' << std::endl;
 
 	print("Span calculation with no value test\n");
 	Span sp2(3);
@@ -61,7 +64,7 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	print('\n');
+	print("\n\n");
 	print("Span calculation with single value test\n");
 	sp2.addNumber(1000);
 	try
@@ -73,7 +76,7 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	print('\n');
+	print("\n\n");
 	try
 	{
 		print("Longest span:\n");
@@ -83,7 +86,7 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	print('\n');
+	print("\n\n");
 	print("Span calculation with multiple value test\n");
 	sp2.addNumber(400);
 	sp2.addNumber(900);
@@ -98,7 +101,7 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	print('\n');
+	print("\n\n");
 	try
 	{
 		print("Longest span:\n");
@@ -109,7 +112,7 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	print('\n');
+	print("\n\n");
 	print("Span overflow test\n");
 	try
 	{
@@ -123,8 +126,13 @@ int main()
 	print("Large span test\n");
 	Span sp3(10000);
 	srand(time(NULL));
-	for (unsigned int i = 0; i < 10000; i++)
-		sp3.addNumber(rand() % 10000);
+	std::vector<int> temp(10000);
+	std::generate(temp.begin(), temp.end(), rand);
+	int min = *(std::min_element(temp.begin(), temp.end()));
+	int max = *(std::max_element(temp.begin(), temp.end()));
+	std::cout << "Minimum value of a random list of 10000 integers is: " << min << std::endl;
+	std::cout << "Maximum value of a random list of 10000 integers is: " << max << std::endl;
+	sp3.addNumber(temp.begin(), temp.end());
 	try
 	{
 		print("Shortest span:\n");

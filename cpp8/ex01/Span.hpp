@@ -34,6 +34,14 @@ class Span
 		~Span(void);
 
 		void addNumber(int value);
+
+		template <typename Iterator>
+		void addNumber(Iterator first, Iterator last) {
+			if (static_cast<long unsigned int>(std::distance(first, last)) > (_max_size - _span.size()))
+				throw Span::SpanIsFullException();
+			_span.insert(_span.begin(), first, last);
+		}
+		
 		unsigned int	shortestSpan() const;
 		unsigned int	longestSpan() const;
 
